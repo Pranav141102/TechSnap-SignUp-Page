@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+		rel="stylesheet" />
+	<title>Sign-Up</title>
+</head>
+
+<body>
+	<div class="main_conatiner">
+		<section class="order_section">
+			<div class="left-section">
+				<div class="login-form">
+					<h2>Sign Up</h2>
+					<form>
+						<label for="username">Username:</label>
+						<input type="text" id="username" name="username" required>
+	
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" required>
+
+						<label for="email">Phone No. :</label>
+						<input type="number" id="number" name="number" required>
+	
+						<label for="password">Password:</label>
+						<input type="password" id="password" name="password" required>
+	
+						<button type="submit">Sign Up</button>
+					</form>
+					<div class="form-footer">
+						<p>Already have an account? <a href="#">Log In</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="order_rightSection">
+				<div class="title">
+					<h1>Now convert your Xp Directly into Coins !!</h1>
+				</div>
+				<div class="image">
+					<img src="/assets/pic.svg" alt="pic">
+				</div>
+				<div class="coins">
+					<div class="coins_item">
+						<img src="/assets/pot.svg" alt="pot">
+						<p>1000 XP</p>
+					</div>
+					<span>=</span>
+					<div class="coins_item">
+						<img src="/assets/pot.svg" alt="pot">
+						<p>1000 XP</p>
+					</div>
+				</div>
+				<div class="button_redeem">
+					<button>Redeem Now</button>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script>
+		const select = document.querySelectorAll('.selectBtn');
+		const option = document.querySelectorAll('.option');
+		let index = 1;
+
+		select.forEach((a) => {
+			a.addEventListener('click', (b) => {
+				const next = b.target.nextElementSibling;
+				next.classList.toggle('toggle');
+				next.style.zIndex = index++;
+			});
+		});
+		option.forEach((a) => {
+			a.addEventListener('click', (b) => {
+				b.target.parentElement.classList.remove('toggle');
+
+				const parent = b.target.closest('.select').children[0];
+				parent.setAttribute('data-type', b.target.getAttribute('data-type'));
+				parent.innerText = b.target.innerText;
+			});
+		});
+
+		// changes
+		function closeOffer() {
+			var offerDiv = document.getElementById('offer');
+
+			var offerHeight = offerDiv.offsetHeight;
+
+			offerDiv.style.height = '0';
+			offerDiv.style.overflow = 'hidden';
+			offerDiv.style.opacity = '0';
+
+			var contentAfterOffer = document.querySelector('.content-after-offer');
+			if (contentAfterOffer) {
+				contentAfterOffer.style.marginTop = '-' + offerHeight + 'px';
+			}
+
+			setTimeout(function () {
+				offerDiv.style.display = 'none';
+			}, 500);
+		}
+
+	</script>
+</body>
+
+</html>
